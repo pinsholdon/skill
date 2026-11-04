@@ -2,8 +2,6 @@
 
 This repository contains skills for Claude. A skill is a packaged set of instructions and reference material that Claude loads when a task matches its description.
 
-## Available skills
-
 | Skill | Folder | Purpose |
 |---|---|---|
 | Charismatic Leadership Tactics | [`Charisma/`](Charisma/) | Score and rewrite speeches, presentations, emails, memos and posts using the 12 Charismatic Leadership Tactics (CLTs) |
@@ -12,39 +10,51 @@ This repository contains skills for Claude. A skill is a packaged set of instruc
 
 ## Charismatic Leadership Tactics skill
 
-### Credits
+This skill helps you evaluate and improve persuasive communication using the Charismatic Leadership Tactics framework developed by **Professor John Antonakis** (HEC Lausanne). It works on speeches, presentations, keynotes, town halls, emails, memos and LinkedIn posts.
 
-**All credit for the methodology belongs to Professor John Antonakis** (HEC Lausanne, University of Lausanne) and his coauthors. The Charismatic Leadership Tactics framework, its definitions, its coding method and the empirical evidence behind it are entirely their work. This repository only translates that published research into instructions Claude can follow. It is not affiliated with, endorsed by, or reviewed by Professor Antonakis or the University of Lausanne.
-
-The skill is grounded mainly in the following publications:
-
-* Antonakis, Fenley and Liechti (2011), *Academy of Management Learning and Education*
-* Antonakis, Fenley and Liechti (2012), *Harvard Business Review*
-* Antonakis, Bastardoz, Jacquart and Shamir (2016), *Annual Review of Organizational Psychology and Organizational Behavior*
-* Antonakis, d'Adda, Weber and Zehnder (2022), *Management Science*
-* Jacquart and Antonakis (2015), *Academy of Management Journal*
-* Tur, Harstad and Antonakis (2022), *The Leadership Quarterly*
-* Bastardoz and Antonakis (2020), book chapter on signaling charisma
-
-The full list, with notes on how each paper is used, is in [`Charisma/references/source-papers/README.md`](Charisma/references/source-papers/README.md). Anyone wishing to apply this methodology seriously is encouraged to read the original papers.
-
-### What the skill does
+### The framework
 
 The framework defines charisma as values based, symbolic and emotion laden leader signaling. It is expressed through 12 tactics grouped in three categories:
 
-| Category | Tactics |
-|---|---|
-| **Framing** (verbal) | Metaphor, rhetorical question, story, contrast, list |
-| **Substance** (verbal) | Moral conviction, sentiment of the collective, ambitious goal, goal can be achieved |
-| **Delivery** (nonverbal) | Animated voice, facial expressions, gestures |
+| Category | What it signals | Tactics |
+|---|---|---|
+| **Framing** (verbal) | The leader's ability | Metaphor, rhetorical question, story, contrast, list |
+| **Substance** (verbal) | The leader's intentions and values | Moral conviction, sentiment of the collective, ambitious goal, goal can be achieved |
+| **Delivery** (nonverbal) | Alignment between words and body | Animated voice, facial expressions, gestures |
 
-The skill works in three modes:
+Research by Antonakis and his coauthors shows that these tactics can be learned, and that using them measurably improves how leaders are perceived and how audiences respond.
+
+### How the skill works
+
+The skill has three modes:
 
 1. **Score**: codes the content sentence by sentence and returns a structured score plus a readable summary.
-2. **Rewrite**: diagnoses which tactics are missing and rewrites the content with annotations explaining each change.
-3. **Iterate**: scores, rewrites, then scores again to show the improvement, and stops after one cycle.
+2. **Rewrite**: diagnoses which tactics are missing and rewrites the content, with annotations explaining each change.
+3. **Iterate**: scores, rewrites, then scores again to show the improvement, and stops after one cycle so you stay in control.
 
-Every rewrite is checked against three guardrails: meaning preservation, tactic balance, and a natural human voice. For text input, only the 9 verbal tactics are scored, since nonverbal tactics require audio or video.
+Every rewrite is checked against three guardrails:
+
+* **Meaning preservation**: facts, numbers and commitments are never changed.
+* **Tactic balance**: no single tactic dominates the text.
+* **Human voice**: the result must still sound natural, not like a parody of a keynote.
+
+For text input, only the 9 verbal tactics are scored, since nonverbal tactics require audio or video. For sensitive topics such as layoffs, illness or crisis, the skill deliberately uses fewer tactics.
+
+### Usage
+
+Once installed, simply ask Claude in plain language, for example:
+
+* "Score this speech for charisma."
+* "Rewrite this email to make it more compelling."
+* "Score and improve this keynote opening."
+
+Each response that uses the skill ends with a short signature line (for example `[clt-skill v2.1 · score:56 · ...]`) so you can confirm the skill was applied.
+
+### Installation
+
+**Claude Code**: copy the `Charisma` folder into `~/.claude/skills/` (personal use) or into `.claude/skills/` inside a project.
+
+**Claude apps**: compress the `Charisma` folder into a zip file and upload it under Settings, Capabilities, Skills.
 
 ### Folder structure
 
@@ -62,21 +72,23 @@ Charisma/
     └── source-papers/               Original research papers
 ```
 
-### Installation
+---
 
-**Claude Code**: copy the `Charisma` folder into `~/.claude/skills/` (personal use) or into `.claude/skills/` inside a project.
+## Credits
 
-**Claude apps**: compress the `Charisma` folder into a zip file and upload it under Settings, Capabilities, Skills.
+**All credit for the methodology belongs to Professor John Antonakis** (HEC Lausanne, University of Lausanne) and his coauthors. The Charismatic Leadership Tactics framework, its definitions, its coding method and the empirical evidence behind it are entirely their work. This repository only translates that published research into instructions Claude can follow. It is not affiliated with, endorsed by, or reviewed by Professor Antonakis or the University of Lausanne.
 
-### Usage
+The skill is grounded mainly in the following publications:
 
-Once installed, simply ask Claude in plain language, for example:
+* Antonakis, Fenley and Liechti (2011), *Academy of Management Learning and Education*
+* Antonakis, Fenley and Liechti (2012), *Harvard Business Review*
+* Antonakis, Bastardoz, Jacquart and Shamir (2016), *Annual Review of Organizational Psychology and Organizational Behavior*
+* Antonakis, d'Adda, Weber and Zehnder (2022), *Management Science*
+* Jacquart and Antonakis (2015), *Academy of Management Journal*
+* Tur, Harstad and Antonakis (2022), *The Leadership Quarterly*
+* Bastardoz and Antonakis (2020), book chapter on signaling charisma
 
-* "Score this speech for charisma."
-* "Rewrite this email to make it more compelling."
-* "Score and improve this keynote opening."
-
-Each response that uses the skill ends with a short signature line (for example `[clt-skill v2.1 · score:56 · ...]`) so you can confirm the skill was applied.
+The full list, with notes on how each paper is used, is in [`Charisma/references/source-papers/README.md`](Charisma/references/source-papers/README.md). Anyone wishing to apply this methodology seriously is encouraged to read the original papers.
 
 ---
 
@@ -96,4 +108,4 @@ The skill files in this repository are released under the [Creative Commons Attr
 
 For any commercial use, please contact the repository owner for permission.
 
-The research papers in `Charisma/references/source-papers/` remain the property of their respective authors and publishers. They are **not** covered by the MIT License.
+The research papers in `Charisma/references/source-papers/` remain the property of their respective authors and publishers. They are **not** covered by this license.
