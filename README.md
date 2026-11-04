@@ -86,6 +86,14 @@ This skill is provided **"as is", without warranty of any kind**, express or imp
 
 ## License
 
-The skill files in this repository are released under the [MIT License](LICENSE).
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+The skill files in this repository are released under the [Creative Commons Attribution NonCommercial ShareAlike 4.0 International License](LICENSE) (CC BY-NC-SA 4.0). In short, you are free to share and adapt this work, provided that:
+
+* **Attribution**: you give appropriate credit, link to the license, and indicate if changes were made.
+* **NonCommercial**: you do not use the material for commercial purposes, which includes selling it.
+* **ShareAlike**: if you remix, transform or build upon the material, you distribute your contributions under the same license.
+
+For any commercial use, please contact the repository owner for permission.
 
 The research papers in `Charisma/references/source-papers/` remain the property of their respective authors and publishers. They are **not** covered by the MIT License.
